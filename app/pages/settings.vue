@@ -2,16 +2,15 @@
     <div>
 
         <section>
-            <v-card-title>
-                <back />
-                Settings
-            </v-card-title>
+            <back />
+            Settings
         </section>
 
         <section>
-            <div v-for="item, i in settings" :key="i" style="display: flex;">
-                <v-switch inset :label="item.description" style="margin: 0;" @change="updateSetting(item.key, this)" v-model="item.data" />
-            </div>
+            <label class="label cursor-pointer" v-for="item in settings" :key="i">
+                <span class="label-text">{{ item.description }}</span>
+                <input type="checkbox" class="toggle toggle-primary" :checked="item.data" @change="updateSetting(item.key, this)" />
+            </label>
         </section>
 
     </div>

@@ -9,7 +9,7 @@
       <p class="accent--text">You may need to plug in your device or enable 'USB Debugging'</p>
       <p>or</p>
       <nuxt-link to="/wirelessSetup">
-        <button class="btn btn-primary"><icon name="link" /> Connect Wirelessly</button>
+        <button class="btn btn-primary text-white"><icon name="link" /> Connect Wirelessly</button>
       </nuxt-link>
     </center>
 

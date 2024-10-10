@@ -15,7 +15,7 @@
 export default {
     data() {
         return {
-            updateAvailable: true,
+            updateAvailable: false,
             currentVersion: new String(),
             latestVersion: new String(),
             repo: []
