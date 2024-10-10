@@ -3,6 +3,7 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: false },
   modules: ['nuxt-electron', '@nuxtjs/tailwindcss'],
+  plugins: ['@/plugins/scrcpy-plus-core'],
   runtimeConfig: {
     public: {
       version: "3.0.0-canary",
