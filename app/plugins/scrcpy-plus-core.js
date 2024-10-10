@@ -14,9 +14,18 @@ const execute = (cmd) => {
   })
 }
 
+const utils = {
+  openInternal(url) {
+    window.open(url, '_blank', 'autoHideMenuBar=true');
+  },
+  openExternal(url) {
+    require("electron").shell.openExternal(url)
+  }
+}
+
 
 export default defineNuxtPlugin(() => {
   return {
-    provide: { execute }
+    provide: { execute, utils }
   }
 })
