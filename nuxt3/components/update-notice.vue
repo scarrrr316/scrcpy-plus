@@ -1,15 +1,12 @@
 <template>
     <section class="s-alert-primary" v-if="updateAvailable">
-        <h3>Update Available</h3>
+        <h3 class="text-primary">Update Available</h3>
         <div style="color: #999;">A new version of SCRCPY+ is ready to be downloaded</div>
-        <div>
+        <div class="flex">
             <span>{{ currentVersion }}</span>
-            <v-icon style="margin-right: 0; transform: translateY(-10%);" color="primary">mdi-arrow-right</v-icon>
+            <icon name="arrow-right" class="mx-2" />
             <span>{{ latestVersion }}</span>
-        </div>
-        <div style="display: flex;">
-            <v-spacer />
-            <v-btn rounded class="primaryButton" @click="open"><v-icon>mdi-download</v-icon>Download</v-btn>
+            <button class="btn ml-auto" @click="open"><icon name="download" /> Download</button>
         </div>
     </section>
 </template>

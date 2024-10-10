@@ -4,11 +4,13 @@
 
     <!--   No Device Notice   -->
     <center v-show="!device">
-      <v-icon size="50px" style="margin: 0;">mdi-devices</v-icon>
+      <icon name="mobile-screen" class="w-8 h-8" />
       <h1>No Device Found</h1>
       <p class="accent--text">You may need to plug in your device or enable 'USB Debugging'</p>
       <p>or</p>
-      <v-btn rounded class="primaryButton" @click="$router.push('/wirelessSetup')"><v-icon>mdi-link-variant</v-icon>Connect Wirelessly</v-btn>
+      <nuxt-link to="/wirelessSetup">
+        <button class="btn btn-primary"><icon name="link" /> Connect Wirelessly</button>
+      </nuxt-link>
     </center>
 
     <!--   Show Device Information   -->
@@ -104,7 +106,7 @@
     },
 
     mounted() {
-      this.interval = setInterval(this.checkDevice, process.env.devicePollRate);
+      this.interval = setInterval(this.checkDevice, this.$config.public.devicePollRate);
       this.checkDevice();
     },
 
