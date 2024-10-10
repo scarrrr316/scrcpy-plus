@@ -1,0 +1,57 @@
+name: build
+on: 
+  workflow_dispatch:
+  push:
+    branches:
+      - canary
+
+env:
+  NODE_VERSION: 20
+
+jobs:
+  windows:
+    name: "Windows"
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Install dependencies
+        run: npm i
+        working-directory: app
+      - name: Build
+        run: npm run electron:build
+        working-directory: app
+        env:
+          NODE_OPTIONS: "--openssl-legacy-provider"
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows
+          path: app/dist_electron/win-unpacked
+  linux:
+    name: "Linux"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Install dependencies
+        run: npm i
+        working-directory: app
+      - name: Build
+        run: npm run electron:build
+        working-directory: app
+        env:
+          NODE_OPTIONS: "--openssl-legacy-provider"
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux
+          path: app/dist_electron/linux-unpacked

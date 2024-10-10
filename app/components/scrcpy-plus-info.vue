@@ -36,7 +36,7 @@ const env = process.env;
 export default {
   data() {
     return {
-      version: env.version,
+      version: this.$config.public.version,
       scrcpyVersion: localStorage.getItem("scrcpyVersion"),
       adbVersion: localStorage.getItem("adbVersion"),
 

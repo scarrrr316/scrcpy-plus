@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   modules: ['nuxt-electron', '@nuxtjs/tailwindcss'],
   runtimeConfig: {
     public: {
-      version: "3.0.0",
+      version: "3.0.0-canary",
       scrcpyPath: "resources/scrcpy/",
       releasesUrl: "https://api.github.com/repos/Frontesque/scrcpy-plus/releases",
       devicePollRate: 1250,
