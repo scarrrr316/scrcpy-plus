@@ -23,15 +23,13 @@ jobs:
         run: npm i
         working-directory: app
       - name: Build
-        run: npm run electron:build
+        run: npm run build
         working-directory: app
-        env:
-          NODE_OPTIONS: "--openssl-legacy-provider"
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
           name: windows
-          path: app/dist_electron/win-unpacked
+          path: app/dist/win-unpacked
   linux:
     name: "Linux"
     runs-on: ubuntu-latest
@@ -46,12 +44,10 @@ jobs:
         run: npm i
         working-directory: app
       - name: Build
-        run: npm run electron:build
+        run: npm run build
         working-directory: app
-        env:
-          NODE_OPTIONS: "--openssl-legacy-provider"
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
           name: linux
-          path: app/dist_electron/linux-unpacked
+          path: app/dist/linux-unpacked
