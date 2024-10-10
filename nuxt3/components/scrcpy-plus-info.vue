@@ -17,13 +17,11 @@
         <h4>ADB <span style="color: #999">{{ adbVersion }}</span></h4>
         <div style="padding: 0.5em 0 0 0;">
           <button class="btn btn-primary" @click="$utils.openExternal('https://discord.gg/APQyKz9e9w')">
-            <img src="@/assets/discord-icon.svg" style="width: 1.8em; margin-right: 1em;" />
-            Discord
+            <icon name="discord" /> Discord
           </button>
           <nuxt-link to="/settings">
             <button class="btn btn-primary">
-              <v-icon>mdi-cog</v-icon>
-              Settings
+              <icon name="gear" /> Settings
             </button>
           </nuxt-link>
         </div>

@@ -2,7 +2,7 @@
   <div>
     <div class="titleBar">
       <div :class="os == 'darwin' ? 'centerTitleBar' : ''">
-        <img src="~/assets/icon.png" class="titleBarImage" />
+        <img src="/icon.png" class="titleBarImage" />
         <span>SCRCPY+</span>
       </div>
     </div>
