@@ -2,29 +2,31 @@
     <div>
 
       <!--   Error Alert   -->
-      <v-alert text color="error" v-model="startupError" style="margin: 2em; border-radius: 1em;">
+      <section class="s-alert-error" v-if="startupError">
         <h3>Error Starting SCRCPY+</h3>
         <div style="color: #999;">This error could be caused by <b>{{ reason }}</b> not being properly installed on your OS.</div>
         <div style="color: #999; margin-top: 1em;">
           <b>More Details</b>
           <p style="white-space: pre-wrap;">{{ error }}</p>
         </div>
-      </v-alert>
+      </section>
 
       <section>
         <h1>SCRCPY+ <span style="color: #999">{{ version }}</span></h1>
         <h4>SCRCPY <span style="color: #999">{{ scrcpyVersion }}</span></h4>
         <h4>ADB <span style="color: #999">{{ adbVersion }}</span></h4>
-        <v-card-actions style="padding: 0.5em 0 0 0;">
-          <v-btn rounded @click="$utils.openExternal('https://discord.gg/APQyKz9e9w')" class="primaryButton">
+        <div style="padding: 0.5em 0 0 0;">
+          <button class="btn btn-primary" @click="$utils.openExternal('https://discord.gg/APQyKz9e9w')">
             <img src="@/assets/discord-icon.svg" style="width: 1.8em; margin-right: 1em;" />
             Discord
-          </v-btn>
-          <v-btn rounded to="/settings" class="primaryButton">
-            <v-icon>mdi-cog</v-icon>
-            Settings
-          </v-btn>
-        </v-card-actions>
+          </button>
+          <nuxt-link to="/settings">
+            <button class="btn btn-primary">
+              <v-icon>mdi-cog</v-icon>
+              Settings
+            </button>
+          </nuxt-link>
+        </div>
       </section>
 
     </div>
@@ -40,7 +42,7 @@ export default {
       scrcpyVersion: localStorage.getItem("scrcpyVersion"),
       adbVersion: localStorage.getItem("adbVersion"),
 
-      startupError: false,
+      startupError: true,
       error: new String(),
       reason: "SCRCPY or ADB"
     }

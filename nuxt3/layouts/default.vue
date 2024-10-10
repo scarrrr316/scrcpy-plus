@@ -1,13 +1,12 @@
 <template>
   <div>
     <div class="titleBar">
-      <div>
+      <div :class="os == 'darwin' ? 'centerTitleBar' : ''">
         <img src="~/assets/icon.png" class="titleBarImage" />
         <span>SCRCPY+</span>
       </div>
-    
     </div>
-    <div>
+    <div class="p-8">
       <slot />
     </div>
   </div>
@@ -43,13 +42,15 @@
 
 :root {
   --primary: #8867c0;
+  --primary-bg: #292432;
+  --error-bg: #2f1b1e;
 }
 
 body::-webkit-scrollbar {
   width: 0.25em;
 }
 body::-webkit-scrollbar-thumb {
-  background-color: #8867c0;
+  background-color: var(--primary);
   border-radius: 1em;
   -webkit-app-region: drag;
 }
@@ -64,8 +65,16 @@ html, body, .v-application, .v-application--wrap {
 section {
   border: 2px solid #38373A;
   border-radius: 1.5em;
-  margin: 2em;
   padding: 1em;
+  margin-bottom: 1em;
+}
+.s-alert-primary {
+  border: none !important;
+  background-color: var(--primary-bg);
+}
+.s-alert-error {
+  border: none !important;
+  background-color: var(--error-bg);
 }
 
 .highlight {
@@ -86,3 +95,18 @@ section {
   border: 2px solid var(--primary);
 }
 </style>
+
+<script>
+const os = require("os");
+
+export default {
+  data() {
+    return {
+      os: null,
+    }
+  },
+  created() {
+    this.os = os.platform(); // 'win32' 'darwin' 'linux'
+  }
+}
+</script>
