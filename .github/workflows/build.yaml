@@ -29,7 +29,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: windows
-          path: app/dist/win-unpacked
+          path: app/build/win-unpacked
   linux:
     name: "Linux"
     runs-on: ubuntu-latest
@@ -50,4 +50,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: linux
-          path: app/dist/linux-unpacked
+          path: app/build/linux-unpacked

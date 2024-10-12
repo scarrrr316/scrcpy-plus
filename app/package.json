@@ -4,6 +4,13 @@
   "private": true,
   "type": "module",
   "main": "dist-electron/main.js",
+  "build": {
+    "appId": "me.frontesque.scrcpy-plus",
+    "directories": {
+      "buildResources": "static",
+      "output": "build"
+    }
+  },
   "scripts": {
     "build": "nuxi build --prerender && electron-builder",
     "dev": "nuxt dev",
